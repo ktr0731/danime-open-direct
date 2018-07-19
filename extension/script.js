@@ -1,6 +1,6 @@
 // replace original playDashMovie by new one
 // copied from PlayMovie.js
-playDashMovie = function (defaultPlay, contentId, playlistId, playlistIndex, loginParams) {
+const playDashMovieNew = function (defaultPlay, contentId, playlistId, playlistIndex, loginParams) {
     var width = 0;
     var height = 0;
 
@@ -80,4 +80,38 @@ playDashMovie = function (defaultPlay, contentId, playlistId, playlistIndex, log
     // 途中から再生用再生開始位置を初期化
     startPosition = null;
     paramStartPosition = null;
-}
+};
+
+let found = false;
+new MutationObserver(() => {
+    if (found)  {
+        return;
+    }
+
+    const e = document.querySelector("#streamingQuality a");
+    if (!e) {
+        return
+    }
+
+    found = true;
+
+    console.log("PRINTTTTTTTTTTTTT");
+    const btn = document.createElement("div");
+    // btn.setAttribute("id", "streamingQuality");
+    btn.setAttribute("class", "playerContainer btnDash");
+    const a = document.createElement("a");
+    a.setAttribute("class", "normal");
+    a.innerText = "ポップアップせずに視聴"
+    const partId = window.location.search.match(/partId=(.*)\&?/)[1];
+    const partType = 4; // TODO
+    const serial = 2; // TODO
+    a.addEventListener("click", () => {
+        playDashMovieNew(3, partId, null, null, partType, serial);
+    });
+    btn.appendChild(a);
+    // document.querySelector(".playerContainer div .list").appendChild(btn);
+    document.querySelector("#modalInformation3").appendChild(btn);
+}).observe(document.querySelector("body"), {
+    childList: true,
+    subtree: true,
+});

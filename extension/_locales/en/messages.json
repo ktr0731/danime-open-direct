@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "danime controll popup",
+    "description": "play clicked movie by current display instead of new window in PC mode"
+  },
+  "appDesc": {
+    "message": "",
+    "description":""
+  }
+}
