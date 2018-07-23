@@ -20,6 +20,7 @@
     {
       "matches": ["https://anime.dmkt-sp.jp/animestore/ci_pc*"],
       "js": ["script.js"],
+      "css": ["style.css"],
       "run_at": "document_end"
     }
   ]
