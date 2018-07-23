@@ -1,0 +1,16 @@
+#openDirect {
+  display: table-cell;
+  height: 50px;
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  font-weight: bold;
+  vertical-align: middle;
+  color: #fff;
+  border-right: 2px solid #fff;
+  background-color: rgb(239, 215, 37)
+}
+
+#openDirect:hover {
+  background-color: rgb(246, 234, 149);
+}
