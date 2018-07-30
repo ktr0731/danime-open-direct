@@ -10,6 +10,12 @@ new MutationObserver(() => {
 
     found = true;
 
+    document.querySelectorAll(".closeBtn, .modalOverlay").forEach(e => {
+        e.addEventListener("click", e => {
+            found = false;
+        });
+    });
+
     const partId = window.location.search.match(/partId=(.*)\&?/)[1];
     const btn = document.createElement("div");
     btn.setAttribute("id", "openDirect");
